@@ -1,0 +1,98 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12rem;
+
+  background-image: url(../../../assets/background.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+
+  padding: 2.2rem 0 3rem 0;
+
+
+}
+
+.header .logo {
+  position: absolute;
+  left: 0;
+
+  opacity: 0.5;
+  mix-blend-mode: soft-light;
+}
+
+.header .menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 2rem 0 2rem;
+}
+
+.header .menu ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  gap: 4rem;
+
+  padding: 0;
+  margin: 0;
+
+  font: 400 .8rem Balgin-Light, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.header ul li a {
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: 600;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.line-bar {
+  width: 0%;
+  height: .2rem;
+  background-color: var(--blue);
+  transition: all 0.3s ease;
+}
+
+.menu ul li:hover .line-bar {
+  width: 100%;
+}
+
+.header .title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 26dvw;
+
+  font: 400 .8rem Balgin-Regular, -apple-system, Roboto, Helvetica, sans-serif;
+
+  @media (max-width: 1134px) {
+    padding: 0 22dvw;
+  }
+}
+
+.header .title h1 {
+  text-align: center;
+  color: var(--white);
+}
+
+.header .arrow{
+  cursor: pointer;
+}
+
+.hu__hu__ { animation: hu__hu__ infinite 3s ease-in-out }
+@keyframes hu__hu__ {
+    50% { transform: translateY(30px) }
+}
