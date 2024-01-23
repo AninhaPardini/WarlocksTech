@@ -1,5 +1,9 @@
 import { NgFor } from '@angular/common';
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit } from '@angular/core';
+import { SwiperContainer } from 'swiper/element';
+import { SwiperOptions } from 'swiper/types';
+import Swiper from 'swiper/types/swiper-class';
+import { SwiperModule } from 'swiper/types/shared';
 
 interface Member {
   name: string;
@@ -10,11 +14,14 @@ interface Member {
 @Component({
   selector: 'app-about-us',
   standalone: true,
-  imports: [NgFor],
+  imports: [
+    NgFor
+  ],
   templateUrl: './about-us.component.html',
   styleUrl: './about-us.component.css'
 })
-export class AboutUsComponent {
+export class AboutUsComponent implements OnInit, AfterViewInit {
+  @Input() config?: SwiperOptions;
   listMembers: Member[] = [
     {
       name: 'Newton Fleury',
@@ -65,6 +72,18 @@ export class AboutUsComponent {
       image: '../../assets/members/jojo.svg'
     },
   ];
+  index = 0;
 
-  constructor() {}
+  constructor(private el: ElementRef<SwiperContainer>) {
+
+  }
+
+  ngOnInit() {}
+  ngAfterViewInit(): void {
+      Object.assign(this.el.nativeElement.swiper, this.config);
+
+      this.el.nativeElement.initialize();
+  }
+
+
 }
